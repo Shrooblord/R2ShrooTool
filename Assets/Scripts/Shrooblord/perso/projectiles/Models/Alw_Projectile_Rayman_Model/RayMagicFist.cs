@@ -21,7 +21,8 @@ namespace RaymapGame.Rayman2.Persos {
             if (shooter == rayman) {
                 pos = rayman.perso.channelObjects[2].transform.position + rayman.forward * 0.12f + rayman.right * 0.28f + rayman.upward * 0.15f;
             }
-            SetRule("Charging");
+            //SetRule("Charging");
+            SetRule("Release");
         }
 
         #region Rules
@@ -38,33 +39,16 @@ namespace RaymapGame.Rayman2.Persos {
             waitTimer += dt;
         }
 
-        //Timer StartDieTimer = new Timer();
         protected void Rule_Release() {
-            if (newRule && scale < 1) {
-                scale = 1;
-                SetRule("ShootProjectile");
-            }
-                    
-            //StartDieTimer.Start(1f, () => SetRule("Weakening"), false);
-            
-        }
-
-        Timer DieTimer = new Timer();
-        protected void Rule_ShootProjectile() {
-            Rule_Shoot();
             if (newRule) {
-                //DieTimer.Start(2f, () => SetRule("Die"), false);
+                if (scale < 1) {
+                    scale = 1;
+                }
+
                 pos = shooter.pos + Vector3.up * 1.2f + shooter.forward;
+                SetRule("Shoot");
             }
         }
-
-        //protected void Rule_Weakening() {
-            //if (newRule) anim.Set(1);
-        //}
-
-//         protected void Rule_Die() {
-//             Destroy(gameObject);
-//         }
         #endregion
     }
 }
