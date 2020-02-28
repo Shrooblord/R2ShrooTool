@@ -207,6 +207,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RaymapGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5229540804535009737, guid: 6d20f547e32d62149b0fc558b5b85c3b,
+        type: 3}
+      propertyPath: emptyLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229540804535009737, guid: 6d20f547e32d62149b0fc558b5b85c3b,
+        type: 3}
+      propertyPath: showLiveScripts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5229540804535009748, guid: 6d20f547e32d62149b0fc558b5b85c3b,
         type: 3}
       propertyPath: strafe
