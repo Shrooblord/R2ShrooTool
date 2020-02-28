@@ -10,7 +10,7 @@ namespace RaymapGame.Rayman2.Persos {
     /// Magic Fist Projectile
     /// </summary>
     ///     
-    public partial class RayMagicFist : Alw_Projectile_Rayman_Model {
+    public partial class RayMagicFistChargingFX : Alw_Projectile_Rayman_Model {
         float waitTimer;
         protected override void OnStart() {
             SetRule("Init");
@@ -26,6 +26,9 @@ namespace RaymapGame.Rayman2.Persos {
 
         #region Rules
         protected void Rule_Charging() {
+            if (newRule)
+                Timer.StartNew(0.5f, Remove);   //these particle fx are short-lived
+
             rot = shooter.rot;
             //pos = shooter.pos + Vector3.up * 1.2f + shooter.right * 0.8f - shooter.forward * 0.3f;
 
@@ -35,36 +38,11 @@ namespace RaymapGame.Rayman2.Persos {
 
             if (scale < 1.10f && waitTimer > 0.1f)
                 scale += 0.5f * dt;
+            if (scale > 1.10f)
+                scale = 1.10f;
+
             waitTimer += dt;
         }
-
-        //Timer StartDieTimer = new Timer();
-        protected void Rule_Release() {
-            if (newRule && scale < 1) {
-                scale = 1;
-                SetRule("ShootProjectile");
-            }
-                    
-            //StartDieTimer.Start(1f, () => SetRule("Weakening"), false);
-            
-        }
-
-        Timer DieTimer = new Timer();
-        protected void Rule_ShootProjectile() {
-            Rule_Shoot();
-            if (newRule) {
-                //DieTimer.Start(2f, () => SetRule("Die"), false);
-                pos = shooter.pos + Vector3.up * 1.2f + shooter.forward;
-            }
-        }
-
-        //protected void Rule_Weakening() {
-            //if (newRule) anim.Set(1);
-        //}
-
-//         protected void Rule_Die() {
-//             Destroy(gameObject);
-//         }
         #endregion
     }
 }
