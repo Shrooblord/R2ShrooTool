@@ -18,15 +18,15 @@ namespace RaymapGame.Rayman2.Persos {
         protected void Rule_Init() {
             rot = shooter.rot;
             if (shooter == rayman) {
-                pos = rayman.perso.channelObjects[2].transform.position + rayman.forward * 0.12f + rayman.right * 0.28f + rayman.upward * 0.15f;
+                //pos = rayman.perso.channelObjects[2].transform.position + rayman.forward * 0.12f + rayman.right * 0.28f + rayman.upward * 0.15f;
             }
-            SetRule("Charging");
+            SetRule("ChargingMagicFist");
         }
 
         #region Rules
-        protected void Rule_Charging() {
+        protected void Rule_ChargingMagicFist() {
             if (newRule)
-                Timer.StartNew(0.5f, Remove);   //these particle fx are short-lived
+                Timer.StartNew(0.15f, Remove);   //these particle fx are short-lived
 
             //rot = shooter.rot;
 
