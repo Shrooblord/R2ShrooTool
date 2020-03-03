@@ -27,7 +27,7 @@ namespace RaymapGame.Rayman2.Persos {
                     scale = 1;
                 }
 
-                pos = shooter.pos + Vector3.up * 1.2f + shooter.forward;
+                pos = shooter.pos + Vector3.up * 1.8f + shooter.forward * 1.5f;
                 SetRule("Shoot");
             }
         }
