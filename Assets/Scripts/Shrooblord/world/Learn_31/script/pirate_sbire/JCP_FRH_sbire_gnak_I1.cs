@@ -57,7 +57,7 @@ namespace RaymapGame.Rayman2.Persos {
         }
 
         //waypoint history
-        int MaxRememberedConnections = 8;
+        int MaxRememberedConnections = 5;
         List<WPConnection> ConnectionHistory = new List<WPConnection>();   //keeps track of the last MaxRememberedConnections paths visited and attempts to avoid going back to those soon
 
         //SFX
